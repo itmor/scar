@@ -1,0 +1,7 @@
+{{qrCode}}
+<div *ngIf="qrCode">
+  <qrcode [qrdata]="qrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+</div>
+<div *ngIf="isConnected">
+  Пользователь залогинен
+</div>
