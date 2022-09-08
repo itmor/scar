@@ -1,7 +1,11 @@
-{{qrCode}}
-<div *ngIf="qrCode">
-  <qrcode [qrdata]="qrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-</div>
-<div *ngIf="isConnected">
-  Пользователь залогинен
+<div class="login">
+  <nz-spin *ngIf="!qrCode" nzSimple></nz-spin>
+
+  <ng-container *ngIf="qrCode">
+    <span class="login__welcome-message">Добро пожаловать в Scar Messenger.</span>
+    <span class="login__welcome-label">для начала работы вводите в WhatsApp</span>
+    <div *ngIf="qrCode">
+      <qr-code [value]="qrCode!" size="256" errorCorrectionLevel="M"></qr-code>
+    </div>
+  </ng-container>
 </div>

@@ -29,7 +29,7 @@ export class WhatsappService {
     this.connect().then();
   }
 
-  async connect(): Promise<void> {
+  private async connect(): Promise<void> {
     this.isConnected$.next(false);
     this.qrData$.next(null);
     const sock = await this.getNewConnection();
@@ -53,9 +53,9 @@ export class WhatsappService {
     });
   }
 
-  async getNewConnection() {
+  private async getNewConnection() {
     const { version } = await this.fetchLatestBaileysVersion();
-    const { state, saveCreds } = await this.useMultiFileAuthState('baileys_auth_info');
+    const { state, saveCreds } = await this.useMultiFileAuthState('scar_auth_info');
 
     const sock = this.makeWASocket({
       version,

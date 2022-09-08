@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 import { WhatsappService } from '../../shared/services/whatsapp.service';
 
@@ -10,18 +12,22 @@ import { WhatsappService } from '../../shared/services/whatsapp.service';
 })
 export class LoginComponent implements OnInit {
   qrCode: string;
-  isConnected: boolean;
 
-  constructor(private whatsappService: WhatsappService, private changeDetect: ChangeDetectorRef) {}
+  constructor(
+    private router: Router,
+    private zone: NgZone,
+    private whatsappService: WhatsappService,
+    private changeDetect: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
-    this.whatsappService.isConnected$.subscribe((value) => {
-      this.isConnected = value;
-      this.changeDetect.detectChanges();
+    this.whatsappService.isConnected$.pipe(filter((value) => value)).subscribe(() => {
+      this.zone.run(() => this.router.navigate(['/messenger']));
     });
 
     this.whatsappService.qrData$.subscribe((qr) => {
       this.qrCode = qr;
+      this.changeDetect.detectChanges();
     });
   }
 }

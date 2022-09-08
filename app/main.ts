@@ -27,7 +27,7 @@ function createWindow(): BrowserWindow {
     debug();
 
     require('electron-reloader')(module);
-    win.loadURL('http://localhost:4200');
+    win.loadURL('http://localhost:4206');
   } else {
     // Path when running electron executable
     let pathIndex = './index.html';

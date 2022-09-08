@@ -1,9 +1,9 @@
 {
-  "name": "angular-electron",
-  "description": "Angular Electron sample",
+  "name": "Scar",
+  "description": "Whatsapp mod",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "itmor",
+    "email": "itmor.developer@gmail.com"
   },
   "version": "11.1.0",
   "main": "main.js",

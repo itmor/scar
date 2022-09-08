@@ -30,7 +30,7 @@
             "polyfills": "src/polyfills.ts",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss", "node_modules/ng-zorro-antd/ng-zorro-antd.aliyun.min.css"],
             "customWebpackConfig": {
               "path": "./angular.webpack.js",
               "replaceDuplicatePlugins": true
@@ -106,7 +106,8 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular-electron:build"
+            "browserTarget": "angular-electron:build",
+             "port": 4206
           },
           "configurations": {
             "dev": {

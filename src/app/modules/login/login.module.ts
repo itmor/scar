@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { QrCodeModule } from 'ng-qrcode';
+
+import { LoginRoutingModule } from './login-routing.module';
 
 import { LoginComponent } from './components/login.component';
 
-import { LoginRoutingModule } from './login-routing.module';
-import { QRCodeModule } from 'angularx-qrcode';
-
 @NgModule({
   declarations: [LoginComponent],
-  imports: [CommonModule, LoginRoutingModule, QRCodeModule],
+  imports: [CommonModule, NzSpinModule, LoginRoutingModule, QrCodeModule],
 })
 export class LoginModule {}
